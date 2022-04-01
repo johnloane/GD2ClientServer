@@ -33,7 +33,7 @@ public class Server
                 serverSocket.receive(datagram);
 
                 //Convert the buffer of byte to a string
-                String message = new String(buffer);
+                String message = new String(datagram.getData(), datagram.getOffset(), datagram.getLength());
 
                 System.out.println("Message received : \"" + message + "\".");
 
