@@ -6,16 +6,12 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.Date;
 
+import static com.dkit.gd2.johnloane.comboservicecore.ComboServiceDetails.*;
+
 public class ComboServiceServer
 {
     public static void main(String[] args)
     {
-        String breakingCharacters = "&&";
-
-        final int SERVER_PORT = 50005;
-        final int CLIENT_PORT = 50006;
-
-        final int MAX_LEN = 150;
 
         int countRequests = 0;
         boolean continueRunning = true;
@@ -25,9 +21,9 @@ public class ComboServiceServer
         try
         {
             //Create a socket to listen for and send messages
-            serverSocket = new DatagramSocket(SERVER_PORT);
+            serverSocket = new DatagramSocket(serverPort);
 
-            System.out.println("Server is ready on port: " + SERVER_PORT);
+            System.out.println("Server is ready on port: " + serverPort);
 
             //Loop forever, processing requests
             while(continueRunning)
@@ -77,7 +73,7 @@ public class ComboServiceServer
 
                 byte[] responseBuffer = response.getBytes();
                 //Create a packet and add response
-                DatagramPacket responsePacket = new DatagramPacket(responseBuffer, responseBuffer.length, requestorAddress, CLIENT_PORT);
+                DatagramPacket responsePacket = new DatagramPacket(responseBuffer, responseBuffer.length, requestorAddress, clientPort);
                 serverSocket.send(responsePacket);
             }
         }

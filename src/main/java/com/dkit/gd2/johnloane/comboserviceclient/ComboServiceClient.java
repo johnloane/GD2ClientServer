@@ -7,16 +7,13 @@ import java.net.InetAddress;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import static com.dkit.gd2.johnloane.comboservicecore.ComboServiceDetails.*;
+
 public class ComboServiceClient
 {
     public static void main(String[] args)
     {
         Scanner keyboard = new Scanner(System.in);
-
-        final int serverPort = 50005;
-        final int clientPort = 50006;
-        String breakingCharacters = "&&";
-        final int MAX_LEN = 150;
 
         DatagramSocket clientSocket = null;
 
