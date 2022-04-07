@@ -86,7 +86,7 @@ public class ComboStreamServer
                     }
                     else if(components[0].equals(Protocol.END.name()))
                     {
-                        continueRunning = false;
+                        //continueRunning = false;
                         sendMessage = false;
                     }
                     else
